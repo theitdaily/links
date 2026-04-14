@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Smart-link страница со ссылками на соцсети, донаты и будущие продукты."
+      data-i18n-content="metaDescription"
+    />
+    <title data-i18n="pageTitle">The IT Daily | Smart Link</title>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P232P7HQ');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P232P7HQ"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <style>
+      :root {
+        --bg: #0d1020;
+        --bg-soft: #141b33;
+        --text: #f3f6ff;
+        --muted: #b8c1e0;
+        --primary: #7f83ff;
+        --secondary: #47d4ff;
+        --card: rgba(255, 255, 255, 0.08);
+        --card-border: rgba(255, 255, 255, 0.16);
+        --top-gradient-height: 520px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        font-family: Inter, Manrope, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        color: var(--text);
+        background: var(--bg-soft);
+      }
+
+      body {
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: '';
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: var(--top-gradient-height);
+        background:
+          radial-gradient(140% 95% at 0% 0%, rgba(71, 212, 255, 0.18), transparent 50%),
+          radial-gradient(120% 85% at 100% 10%, rgba(127, 131, 255, 0.24), transparent 45%),
+          linear-gradient(
+            180deg,
+            rgba(13, 16, 32, 0.92) 0%,
+            rgba(20, 27, 51, 0.88) 68%,
+            var(--bg-soft) 100%
+          );
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .footnote a {
+          color: #dfa9df;
+      }
+
+      .footnote a:hover {
+          color: #9783c8;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      main {
+        position: relative;
+        z-index: 1;
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 24px 18px 60px;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 14px;
+      }
+
+      .lang-switcher {
+        display: inline-flex;
+        border: 1px solid var(--card-border);
+        border-radius: 999px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .lang-btn {
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        padding: 8px 14px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .lang-btn.active {
+        color: #0b1021;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+      }
+
+      .hero {
+        text-align: center;
+        margin-top: 6px;
+        animation: fadeUp 0.45s ease-out both;
+      }
+
+      .avatar {
+        width: 118px;
+        height: 118px;
+        border-radius: 50%;
+        margin: 0 auto 16px;
+        padding: 3px;
+        position: relative;
+        background: conic-gradient(from 120deg, var(--primary), var(--secondary), #8ef0ff, var(--primary));
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28), 0 0 28px rgba(127, 131, 255, 0.35);
+      }
+
+      .avatar::before {
+        content: '';
+        position: absolute;
+        inset: 6px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.02));
+        z-index: 0;
+      }
+
+      .avatar-img {
+        position: absolute;
+        inset: 7px;
+        width: calc(100% - 14px);
+        height: calc(100% - 14px);
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        z-index: 1;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(1.9rem, 5vw, 2.4rem);
+      }
+
+      .subtitle {
+        margin: 10px auto 0;
+        max-width: 560px;
+        color: var(--muted);
+        line-height: 1.45;
+      }
+
+      .section {
+        margin-top: 18px;
+        padding: 16px;
+        background: var(--card);
+        border: 1px solid var(--card-border);
+        border-radius: 16px;
+        animation: fadeUp 0.5s ease-out both;
+      }
+
+      .section h2 {
+        margin: 0 0 12px;
+        font-size: 1.05rem;
+      }
+
+      .links {
+        display: grid;
+        gap: 10px;
+      }
+
+      .link-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 12px;
+        padding: 11px 13px;
+        transition: transform 0.16s ease, border-color 0.16s ease, background-color 0.16s ease;
+      }
+
+      .link-item:hover,
+      .link-item:focus-visible {
+        transform: translateY(-1px);
+        border-color: rgba(255, 255, 255, 0.28);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .link-item small {
+        color: var(--muted);
+      }
+
+      .badge {
+        border-radius: 999px;
+        padding: 4px 10px;
+        font-size: 0.74rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: #0c1122;
+        white-space: nowrap;
+      }
+
+      .product {
+        cursor: not-allowed;
+        opacity: 0.78;
+      }
+
+      .footnote {
+        margin-top: 18px;
+        color: var(--muted);
+        text-align: center;
+        font-size: 0.9rem;
+      }
+
+      .support-reveal {
+        margin-top: 12px;
+      }
+
+      .support-toggle {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        border-radius: 12px;
+        padding: 11px 13px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.16s ease, border-color 0.16s ease, background-color 0.16s ease;
+      }
+
+      .support-toggle:hover,
+      .support-toggle:focus-visible {
+        transform: translateY(-1px);
+        border-color: rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .support-toggle-main {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      .support-toggle-subtitle {
+        font-size: 0.74rem;
+        font-weight: 500;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+
+      .support-details {
+        margin-top: 10px;
+        display: grid;
+        gap: 9px;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(-4px);
+        transition: max-height 0.32s ease, opacity 0.24s ease, transform 0.24s ease;
+      }
+
+      .support-details.is-open {
+        max-height: 520px;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .support-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 8px;
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 12px;
+        padding: 10px 12px;
+      }
+
+      .support-value {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-size: 0.86rem;
+        word-break: break-all;
+      }
+
+      .copy-btn {
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        background: rgba(255, 255, 255, 0.09);
+        color: var(--text);
+        border-radius: 10px;
+        padding: 7px 11px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .copy-btn:hover,
+      .copy-btn:focus-visible {
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="topbar">
+        <div class="lang-switcher" role="group" aria-label="Language switcher">
+          <button class="lang-btn" data-lang="ru" type="button">RU</button>
+          <button class="lang-btn" data-lang="en" type="button">EN</button>
+        </div>
+      </div>
+
+      <section class="hero">
+        <div class="avatar">
+          <img
+            class="avatar-img"
+            src="./ava600600black.jpg"
+            alt="Profile placeholder photo"
+            loading="lazy"
+          />
+        </div>
+        <h1 data-i18n="heroTitle">The IT Daily</h1>
+        <p class="subtitle" data-i18n="heroSubtitle">
+          Все важные ссылки в одном месте: соцсети, поддержка и будущие продукты.
+        </p>
+      </section>
+
+      <section class="section" style="animation-delay: 0.05s">
+        <h2 data-i18n="socialTitle">Социальные сети</h2>
+        <div class="links">
+          <a class="link-item" href="https://t.me/theitdaily" target="_blank" rel="noopener noreferrer">
+            <span>
+              Telegram<br />
+              <small>@theitdaily</small>
+            </span>
+            <span class="badge" data-i18n="open">Открыть</span>
+          </a>
+
+          <a class="link-item" href="https://instagram.com/theitdaily" target="_blank" rel="noopener noreferrer">
+            <span>
+              Instagram<br />
+              <small>@theitdaily</small>
+            </span>
+            <span class="badge" data-i18n="open">Открыть</span>
+          </a>
+
+          <a class="link-item" href="https://youtube.com/@theitdaily" target="_blank" rel="noopener noreferrer">
+            <span>
+              YouTube<br />
+              <small>@theitdaily</small>
+            </span>
+            <span class="badge" data-i18n="watch">Смотреть</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="section" style="animation-delay: 0.1s" id="donateSection">
+        <h2 data-i18n="donateTitle">Поддержать донатом</h2>
+        <div class="links">
+          <a class="link-item" href="https://boosty.to/theitdaily" target="_blank" rel="noopener noreferrer">
+            <span>
+              Boosty<br />
+              <small data-i18n="monthlySupport">Ежемесячная поддержка</small>
+            </span>
+            <span class="badge" data-i18n="support">Поддержать</span>
+          </a>
+
+          <a class="link-item" href="https://www.donationalerts.com/r/theitdaily" target="_blank" rel="noopener noreferrer">
+            <span>
+              DonationAlerts<br />
+              <small data-i18n="oneTime">Разовый донат</small>
+            </span>
+            <span class="badge" data-i18n="donate">Донат</span>
+          </a>
+        </div>
+        <div class="support-reveal">
+          <button
+            class="support-toggle"
+            type="button"
+            id="supportToggle"
+            aria-expanded="false"
+            aria-controls="supportDetails"
+          >
+            <span class="support-toggle-main">
+              <span class="support-toggle-text" data-i18n="supportMethodsToggle">Показать реквизиты для перевода</span>
+              <span class="support-toggle-subtitle" data-i18n="supportDirectTransfer">Прямой перевод</span>
+            </span>
+            <span class="badge" data-i18n="supportBadge">Реквизиты</span>
+          </button>
+		  
+          <div class="support-details" id="supportDetails" aria-hidden="true">
+            <div class="support-row">
+              <div>
+                <strong data-i18n="usdtTonAddressLabel">Адрес для USDT в TON Chain</strong><br />
+                <span class="support-value" data-copy-value="UQCER1enmrHJIkeNHwroo71hU3oggSAohaVNq0RDlxQH447k">
+                  UQCER1enmrHJIkeNHwroo71hU3oggSAohaVNq0RDlxQH447k
+                </span>
+              </div>
+              <button class="copy-btn" type="button" data-copy-target="UQCER1enmrHJIkeNHwroo71hU3oggSAohaVNq0RDlxQH447k" data-i18n="copy">
+                Копировать
+              </button>
+            </div>
+
+            <div class="support-row">
+              <div>
+                <strong data-i18n="bybitIdLabel">Bybit ID для перевода любых валют</strong><br />
+                <span class="support-value" data-copy-value="537490804">
+                  537490804
+                </span>
+              </div>
+              <button class="copy-btn" type="button" data-copy-target="537490804" data-i18n="copy">
+                Копировать
+              </button>
+            </div>
+
+            <div class="support-row">
+              <div>
+                <strong data-i18n="binanceIdLabel">Binance ID для перевода любых валют</strong><br />
+                <span class="support-value" data-copy-value="166806665">
+                  166806665
+                </span>
+              </div>
+              <button class="copy-btn" type="button" data-copy-target="166806665" data-i18n="copy">
+                Копировать
+              </button>
+            </div>
+
+            <div class="support-row">
+              <div>
+                <strong data-i18n="tbankCardLabel">Карта Т-Банк</strong><br />
+                <span class="support-value" data-copy-value="2200 7004 9993 2811">
+                  2200 7004 9993 2811
+                </span>
+              </div>
+              <button class="copy-btn" type="button" data-copy-target="2200 7004 9993 2811" data-i18n="copy">
+                Копировать
+              </button>
+            </div>
+
+            <div class="support-row">
+              <div>
+                <strong data-i18n="sberCardLabel">Карта Сбербанк</strong><br />
+                <span class="support-value" data-copy-value="4274 3201 0213 7117">
+                  4274 3201 0213 7117
+                </span>
+              </div>
+              <button class="copy-btn" type="button" data-copy-target="4274 3201 0213 7117" data-i18n="copy">
+                Копировать
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="animation-delay: 0.15s">
+        <h2 data-i18n="productsTitle">Продукты (скоро)</h2>
+        <div class="links">
+          <div class="link-item product" aria-disabled="true">
+            <span>
+              <span data-i18n="productOneName">Product #1</span><br />
+              <small data-i18n="launchSoon">Запуск в ближайшее время</small>
+            </span>
+            <span class="badge" data-i18n="soon">Soon</span>
+          </div>
+
+          <div class="link-item product" aria-disabled="true">
+            <span>
+              <span data-i18n="productTwoName">Product #2</span><br />
+              <small data-i18n="subscribe">Подпишитесь, чтобы не пропустить</small>
+            </span>
+            <span class="badge" data-i18n="soon">Soon</span>
+          </div>
+        </div>
+      </section>
+      <p class="footnote" data-i18n="footnote"></p>
+    </main>
+
+    <script>
+      const i18n = {
+        ru: {
+          pageTitle: 'The IT Daily | Smart Link',
+          metaDescription: 'Smart-link страница со ссылками на соцсети, донаты и будущие продукты.',
+          heroTitle: 'The IT Daily',
+          heroSubtitle:
+            'Все важные ссылки в одном месте: соцсети, поддержка и будущие продукты.',
+          socialTitle: 'Социальные сети',
+          donateTitle: 'Поддержать донатом',
+          productsTitle: 'Продукты (скоро)',
+          open: 'Открыть',
+          watch: 'Смотреть',
+          monthlySupport: 'Ежемесячная поддержка',
+          support: 'Поддержать',
+          oneTime: 'Разовый донат',
+          donate: 'Донат',
+          supportMethodsToggle: 'Показать реквизиты для перевода',
+          supportMethodsToggleHide: 'Скрыть реквизиты для перевода',
+          supportDirectTransfer: 'Прямой перевод',
+          supportBadge: 'Реквизиты',
+          productOneName: 'Продукт #1',
+          productTwoName: 'Продукт #2',
+          usdtTonAddressLabel: 'USDT в TON сети',
+          bybitIdLabel: 'Bybit ID для перевода любых валют',
+          binanceIdLabel: 'Binance ID для перевода любых валют',
+          tbankCardLabel: 'Карта Т-Банк',
+          sberCardLabel: 'Карта Сбербанк',
+          soon: 'Скоро',
+          copy: 'Копировать',
+          copied: 'Скопировано',
+          launchSoon: 'Запуск в ближайшее время',
+          subscribe: 'Подпишитесь, чтобы не пропустить',
+          footnote: 'Powered by <a href="https://github.com/theitdaily">TheITDaily</a>.'
+        },
+        en: {
+          pageTitle: 'The IT Daily | Smart Link',
+          metaDescription: 'Smart-link page with social links, donations, and future products.',
+          heroTitle: 'The IT Daily',
+          heroSubtitle:
+            'All important links in one place: social profiles, support options, and upcoming products.',
+          socialTitle: 'Socials',
+          donateTitle: 'Support / Donations',
+          productsTitle: 'Products (coming soon)',
+          open: 'Open',
+          watch: 'Watch',
+          monthlySupport: 'Monthly support',
+          support: 'Support',
+          oneTime: 'One-time donation',
+          donate: 'Donate',
+          supportMethodsToggle: 'Show transfer details',
+          supportMethodsToggleHide: 'Hide transfer details',
+          supportDirectTransfer: 'Direct transfer',
+          supportBadge: 'Details',
+          productOneName: 'Product #1',
+          productTwoName: 'Product #2',
+          usdtTonAddressLabel: 'USDT on TON network',
+          bybitIdLabel: 'Bybit ID for transfers in any currency',
+          binanceIdLabel: 'Binance ID for transfers in any currency',
+          tbankCardLabel: 'T-Bank card',
+          sberCardLabel: 'Sberbank card',
+          soon: 'Soon',
+          copy: 'Copy',
+          copied: 'Copied',
+          launchSoon: 'Launching soon',
+          subscribe: 'Subscribe to stay updated',
+          footnote: 'Powered by <a href="https://github.com/theitdaily">TheITDaily</a>.'
+        }
+      };
+
+      const langButtons = document.querySelectorAll('.lang-btn');
+      const supportToggle = document.getElementById('supportToggle');
+      const supportDetails = document.getElementById('supportDetails');
+      const copyButtons = document.querySelectorAll('.copy-btn');
+      const donateSection = document.getElementById('donateSection');
+
+      function setLanguage(lang) {
+        const locale = i18n[lang] ? lang : 'ru';
+        document.documentElement.lang = locale;
+
+        const htmlKeys = new Set(['footnote']);
+
+        document.querySelectorAll('[data-i18n]').forEach((node) => {
+          const key = node.getAttribute('data-i18n');
+          if (!i18n[locale][key]) return;
+
+          if (htmlKeys.has(key)) {
+            node.innerHTML = i18n[locale][key];
+            return;
+          }
+
+          node.textContent = i18n[locale][key];
+        });
+
+        document.querySelectorAll('[data-i18n-content]').forEach((node) => {
+          const key = node.getAttribute('data-i18n-content');
+          if (i18n[locale][key]) node.setAttribute('content', i18n[locale][key]);
+        });
+
+        if (i18n[locale].pageTitle) document.title = i18n[locale].pageTitle;
+
+        langButtons.forEach((button) => {
+          button.classList.toggle('active', button.dataset.lang === locale);
+          button.setAttribute('aria-pressed', String(button.dataset.lang === locale));
+        });
+
+        localStorage.setItem('smartLinkLang', locale);
+        if (supportDetails) {
+          setSupportVisible(supportDetails.classList.contains('is-open'));
+        }
+      }
+
+      function setSupportVisible(isVisible) {
+        if (!supportToggle || !supportDetails) return;
+
+        supportToggle.setAttribute('aria-expanded', String(isVisible));
+        supportDetails.classList.toggle('is-open', isVisible);
+        supportDetails.setAttribute('aria-hidden', String(!isVisible));
+
+        const currentLang = document.documentElement.lang === 'en' ? 'en' : 'ru';
+        const toggleTextNode = supportToggle.querySelector('.support-toggle-text');
+        if (!toggleTextNode) return;
+
+        toggleTextNode.textContent = isVisible
+          ? i18n[currentLang].supportMethodsToggleHide
+          : i18n[currentLang].supportMethodsToggle;
+      }
+
+      langButtons.forEach((button) => {
+        button.addEventListener('click', () => setLanguage(button.dataset.lang));
+      });
+
+      if (supportToggle && supportDetails) {
+        supportToggle.addEventListener('click', () => {
+          const isVisible = supportDetails.classList.contains('is-open');
+          setSupportVisible(!isVisible);
+        });
+      }
+
+      copyButtons.forEach((button) => {
+        button.addEventListener('click', async () => {
+          const value = button.dataset.copyTarget;
+          if (!value) return;
+
+          try {
+            await navigator.clipboard.writeText(value);
+          } catch {
+            const tempArea = document.createElement('textarea');
+            tempArea.value = value;
+            document.body.appendChild(tempArea);
+            tempArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempArea);
+          }
+
+          const currentLang = document.documentElement.lang === 'en' ? 'en' : 'ru';
+          const defaultLabel = i18n[currentLang].copy;
+          button.textContent = i18n[currentLang].copied;
+          setTimeout(() => {
+            button.textContent = defaultLabel;
+          }, 1200);
+        });
+      });
+
+      function updateTopGradientHeight() {
+        if (!donateSection) return;
+        const donateTop = donateSection.getBoundingClientRect().top + window.scrollY;
+        document.documentElement.style.setProperty('--top-gradient-height', `${Math.max(0, donateTop)}px`);
+      }
+
+      const browserLang = (navigator.language || 'ru').toLowerCase().startsWith('en') ? 'en' : 'ru';
+      const savedLang = localStorage.getItem('smartLinkLang');
+      setLanguage(savedLang || browserLang);
+      setSupportVisible(false);
+      updateTopGradientHeight();
+      window.addEventListener('resize', updateTopGradientHeight);
+    </script>
+  </body>
+</html>
