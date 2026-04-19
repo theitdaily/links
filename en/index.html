@@ -37,41 +37,7 @@
       }
     </script>
 
-    <style>
-      :root { --bg: #0d1020; --bg-soft: #141b33; --text: #f3f6ff; --muted: #b8c1e0; --primary: #7f83ff; --secondary: #47d4ff; --card: rgba(255, 255, 255, 0.08); --card-border: rgba(255, 255, 255, 0.16); --top-gradient-height: 520px; }
-      * { box-sizing: border-box; }
-      html, body { margin: 0; min-height: 100%; font-family: Inter, Manrope, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--text); background: var(--bg-soft); }
-      body { position: relative; overflow-x: hidden; }
-      body::before { content: ''; position: absolute; inset: 0 0 auto 0; height: var(--top-gradient-height); background: radial-gradient(140% 95% at 0% 0%, rgba(71, 212, 255, 0.18), transparent 50%), radial-gradient(120% 85% at 100% 10%, rgba(127, 131, 255, 0.24), transparent 45%), linear-gradient(180deg, rgba(13, 16, 32, 0.92) 0%, rgba(20, 27, 51, 0.88) 68%, var(--bg-soft) 100%); pointer-events: none; z-index: 0; }
-      .footnote a { color: #dfa9df; }
-      .footnote a:hover { color: #9783c8; }
-      main { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 24px 18px 60px; }
-      .topbar { display: flex; justify-content: flex-end; margin-bottom: 14px; }
-      .lang-switcher { display: inline-flex; border: 1px solid var(--card-border); border-radius: 999px; overflow: hidden; background: rgba(255, 255, 255, 0.04); }
-      .lang-link { text-decoration: none; color: var(--muted); padding: 8px 14px; font-weight: 600; }
-      .lang-link.active { color: #0b1021; background: linear-gradient(135deg, var(--primary), var(--secondary)); }
-      .hero { text-align: center; margin-top: 6px; }
-      .avatar { width: 118px; height: 118px; border-radius: 50%; margin: 0 auto 16px; padding: 3px; position: relative; background: conic-gradient(from 120deg, var(--primary), var(--secondary), #8ef0ff, var(--primary)); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28), 0 0 28px rgba(127, 131, 255, 0.35); }
-      .avatar-img { position: absolute; inset: 7px; width: calc(100% - 14px); height: calc(100% - 14px); border-radius: 50%; object-fit: cover; border: 1px solid rgba(255, 255, 255, 0.18); }
-      h1 { margin: 0; font-size: clamp(1.9rem, 5vw, 2.4rem); }
-      .subtitle { margin: 10px auto 0; max-width: 560px; color: var(--muted); line-height: 1.45; }
-      .section { margin-top: 18px; padding: 16px; background: var(--card); border: 1px solid var(--card-border); border-radius: 16px; }
-      .section h2 { margin: 0 0 12px; font-size: 1.05rem; }
-      .links { display: grid; gap: 10px; }
-      .link-item { display: flex; justify-content: space-between; align-items: center; gap: 10px; text-decoration: none; color: var(--text); background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 12px; padding: 11px 13px; }
-      .badge { border-radius: 999px; padding: 4px 10px; font-size: 0.74rem; font-weight: 700; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #0c1122; white-space: nowrap; }
-      .product { cursor: not-allowed; opacity: 0.78; }
-      .footnote { margin-top: 18px; color: var(--muted); text-align: center; font-size: 0.9rem; }
-      .support-reveal { margin-top: 12px; }
-      .support-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 10px; border: 1px solid rgba(255, 255, 255, 0.24); background: rgba(255, 255, 255, 0.06); color: var(--text); border-radius: 12px; padding: 11px 13px; font-size: 0.95rem; font-weight: 700; cursor: pointer; }
-      .support-toggle-main { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
-      .support-toggle-subtitle { font-size: 0.74rem; font-weight: 500; color: var(--muted); margin-top: 2px; }
-      .support-details { margin-top: 10px; display: grid; gap: 9px; max-height: 0; opacity: 0; overflow: hidden; }
-      .support-details.is-open { max-height: 520px; opacity: 1; }
-      .support-row { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; border: 1px solid rgba(255, 255, 255, 0.14); background: rgba(255, 255, 255, 0.04); border-radius: 12px; padding: 10px 12px; }
-      .support-value { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.86rem; word-break: break-all; }
-      .copy-btn { border: 1px solid rgba(255, 255, 255, 0.24); background: rgba(255, 255, 255, 0.09); color: var(--text); border-radius: 10px; padding: 7px 11px; cursor: pointer; font-weight: 600; }
-    </style>
+    <link rel="stylesheet" href="../assets/styles.css" />
   </head>
   <body>
     <main>
@@ -88,52 +54,29 @@
         <p class="subtitle">All important links in one place: social profiles, support options, and upcoming products.</p>
       </section>
 
-      <section class="section"><h2>Socials</h2><div class="links">
+      <section class="section" style="animation-delay: 0.05s"><h2>Socials</h2><div class="links">
         <a class="link-item" href="https://t.me/theitdaily" target="_blank" rel="noopener noreferrer"><span>Telegram<br /><small>@theitdaily</small></span><span class="badge">Open</span></a>
         <a class="link-item" href="https://instagram.com/theitdaily" target="_blank" rel="noopener noreferrer"><span>Instagram<br /><small>@theitdaily</small></span><span class="badge">Open</span></a>
         <a class="link-item" href="https://youtube.com/@theitdaily" target="_blank" rel="noopener noreferrer"><span>YouTube<br /><small>@theitdaily</small></span><span class="badge">Watch</span></a>
       </div></section>
 
-      <section class="section" id="donateSection"><h2>Support / Donations</h2><div class="links">
+      <section class="section" id="donateSection" style="animation-delay: 0.1s"><h2>Support / Donations</h2><div class="links">
         <a class="link-item" href="https://boosty.to/theitdaily" target="_blank" rel="noopener noreferrer"><span>Boosty<br /><small>Monthly support</small></span><span class="badge">Support</span></a>
         <a class="link-item" href="https://www.donationalerts.com/r/theitdaily" target="_blank" rel="noopener noreferrer"><span>DonationAlerts<br /><small>One-time donation</small></span><span class="badge">Donate</span></a>
       </div>
-      <div class="support-reveal"><button class="support-toggle" type="button" id="supportToggle" aria-expanded="false" aria-controls="supportDetails"><span class="support-toggle-main"><span class="support-toggle-text">Show transfer details</span><span class="support-toggle-subtitle">Direct transfer</span></span><span class="badge">Details</span></button>
+      <div class="support-reveal"><button class="support-toggle" type="button" id="supportToggle" aria-expanded="false" aria-controls="supportDetails" data-show-label="Show transfer details" data-hide-label="Hide transfer details"><span class="support-toggle-main"><span class="support-toggle-text">Show transfer details</span><span class="support-toggle-subtitle">Direct transfer</span></span><span class="badge">Details</span></button>
       <div class="support-details" id="supportDetails" aria-hidden="true">
-        <div class="support-row"><div><strong>USDT on TON network</strong><br /><span class="support-value">UQCER1enmrHJIkeNHwroo71hU3oggSAohaVNq0RDlxQH447k</span></div><button class="copy-btn" data-copy-target="UQCER1enmrHJIkeNHwroo71hU3oggSAohaVNq0RDlxQH447k">Copy</button></div>
-        <div class="support-row"><div><strong>Bybit ID for transfers in any currency</strong><br /><span class="support-value">537490804</span></div><button class="copy-btn" data-copy-target="537490804">Copy</button></div>
-        <div class="support-row"><div><strong>Binance ID for transfers in any currency</strong><br /><span class="support-value">166806665</span></div><button class="copy-btn" data-copy-target="166806665">Copy</button></div>
+        <div class="support-row"><div><strong>USDT on TON network</strong><br /><span class="support-value">UQCER1enmrHJIkeNHwroo71hU3oggSAohaVNq0RDlxQH447k</span></div><button class="copy-btn" data-copy-target="UQCER1enmrHJIkeNHwroo71hU3oggSAohaVNq0RDlxQH447k" data-copy-default="Copy" data-copy-copied="Copied">Copy</button></div>
+        <div class="support-row"><div><strong>Bybit ID for transfers in any currency</strong><br /><span class="support-value">537490804</span></div><button class="copy-btn" data-copy-target="537490804" data-copy-default="Copy" data-copy-copied="Copied">Copy</button></div>
+        <div class="support-row"><div><strong>Binance ID for transfers in any currency</strong><br /><span class="support-value">166806665</span></div><button class="copy-btn" data-copy-target="166806665" data-copy-default="Copy" data-copy-copied="Copied">Copy</button></div>
+        <div class="support-row"><div><strong>T-Bank card</strong><br /><span class="support-value">2200 7004 9993 2811</span></div><button class="copy-btn" data-copy-target="2200 7004 9993 2811" data-copy-default="Copy" data-copy-copied="Copied">Copy</button></div>
+        <div class="support-row"><div><strong>Sberbank card</strong><br /><span class="support-value">4274 3201 0213 7117</span></div><button class="copy-btn" data-copy-target="4274 3201 0213 7117" data-copy-default="Copy" data-copy-copied="Copied">Copy</button></div>
       </div></div></section>
 
-      <section class="section"><h2>Products (coming soon)</h2><div class="links"><div class="link-item product" aria-disabled="true"><span>Product #1<br /><small>Launching soon</small></span><span class="badge">Soon</span></div><div class="link-item product" aria-disabled="true"><span>Product #2<br /><small>Subscribe to stay updated</small></span><span class="badge">Soon</span></div></div></section>
+      <section class="section" style="animation-delay: 0.15s"><h2>Products (coming soon)</h2><div class="links"><div class="link-item product" aria-disabled="true"><span>Product #1<br /><small>Launching soon</small></span><span class="badge">Soon</span></div><div class="link-item product" aria-disabled="true"><span>Product #2<br /><small>Subscribe to stay updated</small></span><span class="badge">Soon</span></div></div></section>
       <p class="footnote">Powered by <a href="https://github.com/theitdaily">TheITDaily</a>.</p>
     </main>
 
-    <script>
-      const supportToggle = document.getElementById('supportToggle');
-      const supportDetails = document.getElementById('supportDetails');
-      const copyButtons = document.querySelectorAll('.copy-btn');
-      const donateSection = document.getElementById('donateSection');
-      function setSupportVisible(isVisible) {
-        supportToggle.setAttribute('aria-expanded', String(isVisible));
-        supportDetails.classList.toggle('is-open', isVisible);
-        supportDetails.setAttribute('aria-hidden', String(!isVisible));
-        supportToggle.querySelector('.support-toggle-text').textContent = isVisible ? 'Hide transfer details' : 'Show transfer details';
-      }
-      supportToggle.addEventListener('click', () => setSupportVisible(!supportDetails.classList.contains('is-open')));
-      copyButtons.forEach((button) => button.addEventListener('click', async () => {
-        const value = button.dataset.copyTarget;
-        await navigator.clipboard.writeText(value);
-        button.textContent = 'Copied';
-        setTimeout(() => { button.textContent = 'Copy'; }, 1200);
-      }));
-      function updateTopGradientHeight() {
-        const donateTop = donateSection.getBoundingClientRect().top + window.scrollY;
-        document.documentElement.style.setProperty('--top-gradient-height', `${Math.max(0, donateTop)}px`);
-      }
-      setSupportVisible(false);
-      updateTopGradientHeight();
-      window.addEventListener('resize', updateTopGradientHeight);
-    </script>
+    <script src="../assets/app.js" defer></script>
   </body>
 </html>
