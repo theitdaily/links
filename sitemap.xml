@@ -16,4 +16,34 @@
     <xhtml:link rel="alternate" hreflang="en" href="/en/" />
     <xhtml:link rel="alternate" hreflang="ru" href="/ru/" />
   </url>
+  <url>
+    <loc>/ru/user-agreement.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/user-agreement.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="/en/user-agreement.html" />
+  </url>
+  <url>
+    <loc>/en/user-agreement.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/user-agreement.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/user-agreement.html" />
+  </url>
+  <url>
+    <loc>/ru/privacy-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/privacy-policy.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="/en/privacy-policy.html" />
+  </url>
+  <url>
+    <loc>/en/privacy-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/privacy-policy.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/privacy-policy.html" />
+  </url>
+  <url>
+    <loc>/ru/cookie-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/cookie-policy.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="/en/cookie-policy.html" />
+  </url>
+  <url>
+    <loc>/en/cookie-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/cookie-policy.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/cookie-policy.html" />
+  </url>
 </urlset>

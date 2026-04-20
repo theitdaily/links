@@ -2,6 +2,9 @@ const supportToggle = document.getElementById('supportToggle');
 const supportDetails = document.getElementById('supportDetails');
 const copyButtons = document.querySelectorAll('.copy-btn');
 const donateSection = document.getElementById('donateSection');
+const cookieBanner = document.getElementById('cookieBanner');
+const cookieAccept = document.getElementById('cookieAccept');
+const cookieConsentKey = 'theitdaily_cookie_consent_v1';
 
 function setSupportVisible(isVisible) {
   if (!supportToggle || !supportDetails) return;
@@ -55,6 +58,22 @@ function updateTopGradientHeight() {
   document.documentElement.style.setProperty('--top-gradient-height', `${Math.max(0, donateTop)}px`);
 }
 
+function bindCookieBanner() {
+  if (!cookieBanner || !cookieAccept) return;
+
+  const isAccepted = localStorage.getItem(cookieConsentKey) === 'accepted';
+  if (!isAccepted) {
+    cookieBanner.classList.add('is-visible');
+    cookieBanner.setAttribute('aria-hidden', 'false');
+  }
+
+  cookieAccept.addEventListener('click', () => {
+    localStorage.setItem(cookieConsentKey, 'accepted');
+    cookieBanner.classList.remove('is-visible');
+    cookieBanner.setAttribute('aria-hidden', 'true');
+  });
+}
+
 if (supportToggle && supportDetails) {
   supportToggle.addEventListener('click', () => {
     const isVisible = supportDetails.classList.contains('is-open');
@@ -65,4 +84,5 @@ if (supportToggle && supportDetails) {
 bindCopyButtons();
 setSupportVisible(false);
 updateTopGradientHeight();
+bindCookieBanner();
 window.addEventListener('resize', updateTopGradientHeight);
