@@ -137,7 +137,6 @@ h1 { margin: 0; font-size: clamp(1.9rem, 5vw, 2.4rem); }
   height: 24px;
   border-radius: 7px;
   flex-shrink: 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.28);
 }
 .link-item:hover,
 .link-item:focus-visible {
@@ -215,7 +214,6 @@ h1 { margin: 0; font-size: clamp(1.9rem, 5vw, 2.4rem); }
   height: 24px;
   border-radius: 7px;
   flex-shrink: 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.28);
 }
 
 .support-row {
